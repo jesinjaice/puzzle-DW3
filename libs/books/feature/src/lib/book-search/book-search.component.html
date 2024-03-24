@@ -21,7 +21,7 @@
       </div>
       <div class="book--content">
         <div class="book--content--cover">
-          <img src="{{ book.coverUrl }}" alt=""/>
+          <img src="{{ book.coverUrl }}" alt="Book Cover"/>
         </div>
         <div class="book--content--info">
           <div><strong>Author:</strong> {{ book.authors.join(',') }}</div>
@@ -37,8 +37,9 @@
               color="primary"
               (click)="addBookToReadingList(book)"
               [disabled]="book.isAdded"
+              data-testing = "add-book-button" 
             >
-              Want to Read
+            {{ book.finished ? 'Finished' : 'Want to Read' }}
             </button>
           </div>
         </div>
@@ -50,7 +51,7 @@
   <div class="empty">
     <p class ="example-text">
       Try searching for a topic, for example
-      <button (click)="searchExample()" aria-label ="JavaScript Example Button" class="btn-style">"JavaScript"</button>.
+      <button (click)="searchExample()" aria-label ="JavaScript Example Button" style="cursor: pointer;">"JavaScript"</button>.
     </p>
   </div>
 </ng-template>
